@@ -1,0 +1,116 @@
+<html>
+<head>
+	<style>
+		* {
+			padding: 0in;
+			margin: 0in;
+		}
+
+		#sheet {
+			position: relative;
+			width: 11in;
+			height: 8.49in;
+
+			display: flex;
+			align-items: center;
+			justify-content: end;
+
+			border: 1px solid black;
+
+			font-family: sans-serif;
+
+			background: #BBB;
+		}
+
+		#envelope {
+			position: relative;
+			width: 9.5in;
+			height: 4.125in;
+
+			border: 1px solid black;
+
+			background: white;
+		}
+
+		#fromAddress {
+			position: absolute;
+			left: 0.1in;
+			top: 0.1in;
+			width: 30%;
+			height: 40%;
+
+			font-size: 10pt;
+
+			overflow: visible;
+		}
+
+		#toAddress {
+			position: absolute;
+			left: 35%;
+			top: 40%;
+			width: 40%;
+			height: 50%;
+
+			font-size: 12pt;
+
+			overflow: visible;
+		}
+
+		#stamp {
+			position: absolute;
+			right: 0.1in;
+			top: 0.1in;
+			width: 1in;
+			height: 1in;
+
+			border: 1px dashed black;
+
+			line-height: 1in;
+
+			font-size: 0.3in;
+			text-align: center;
+			color: #CCC;
+		}
+
+		@media print {
+			* {
+				border: none !important;
+				background: white !important;
+			}
+
+			table {
+				display: none;
+			}
+		}
+	</style>
+	<script>
+		var envelope;
+		window.onload = function() {
+			envelope = document.getElementById("envelope");
+		};
+	</script>
+</head>
+<body>
+	<div id="sheet">
+		<div id="envelope">
+			<textarea id="fromAddress"></textarea>
+			<textarea id="toAddress"></textarea>
+			<div id="stamp" onclick="this.style.display='none';">( ͡° ͜ʖ ͡°)</div>
+		</div>
+	</div>
+	<table>
+		<tr>
+			<td>envelope width:</td>
+			<td>
+				<input onchange="envelope.style.width = this.value;"></input>
+			</td>
+		</tr>
+		<tr>
+			<td>envelope height:</td>
+			<td>
+				<input onchange="envelope.style.height = this.value;"></input>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>
